@@ -1,10 +1,7 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
 
 document.querySelector("#app").innerHTML = `
-  <section id="hero-section carousel-images">
+  <section id="hero-section" class ="carousel-images">
     <header id="header">
           <nav class="nav-bar">
             <div class="logo">
@@ -22,17 +19,15 @@ document.querySelector("#app").innerHTML = `
               <a href="">About</a>
               <a href="">Favorite</a>
             </div>
-            <form id="form">
-              <label for="get" class="search-icon">
-                <input type="text" id="input-field" />
-                <button id="search-btn">
+            <div class = "icon-bar">
+              <form id="search-btn">
+                  <input type="text" class="input-field" />
                   <img
                     src="./assets/img/icons8-search-32.png"
                     alt=""
                     class="search-image"
                   />
-                </button>
-              </label>
+                </form>
               <div class="notify-icon">
                 <img
                   src="./assets/img/icons8-notification-32.png"
@@ -54,55 +49,55 @@ document.querySelector("#app").innerHTML = `
                   />
                 </div>
               </div>
-            </form>
+            </div>
           </nav>
     </header>
-    <div id="posters" class="slider-wrapper">
-      <div id="overlay-main" class="slider">
-        <h1></h1>
-        <div class="card">
-          <button id="counter" type="button"></button>
-        </div>
-        <p class="read-the-docs">
-        </p>
-      </div>
-    </div>
     <div style="text-align:center">
       <span class="dots"></span> 
       <span class="dots"></span> 
       <span class="dots"></span> 
     </div>
   </section>
-
   <section id = "movies">
-   <div id="watch-list">
+  <div id="posters" class="slider-wrapper">
+      <div id = "poster-images">
+      </div>
+      <form id="form">
+        <label for="get" class="search-icon">
+          <input type="text" id="input-field" />
+            <img
+              src="./assets/img/icons8-search-32.png"
+              alt=""
+              class="search-image"
+            />
+        </label>
+      </form>
+    </div>
+    <div id="watch-list">
+    <img src = "" alt = "image-jpg">
       <div id="overlay">
-        <h1></h1>
-        <div class="card">
-          <button id="counter" type="button"></button>
-        </div>
+        <h3></h3>
         <p class="read-the-docs">
         </p>
+        <button id="counter" type="button"></button>
       </div>
     </div>
    <div id="favorites">
+    <img src = "" alt = "image-jpg">
       <div id="overlay">
-        <h1></h1>
-        <div class="card">
-          <button id="counter" type="button"></button>
-        </div>
+        <h3></h3>
         <p class="read-the-docs">
         </p>
+        <button id="counter" type="button"></button>
       </div>
     </div>
-   <div id="liked-movies">
+    <div id="liked-movies">
+      <img src = "" alt = "image-jpg">
       <div id="overlay">
-        <h1></h1>
-        <div class="card">
-          <button id="counter" type="button"></button>
-        </div>
+        <h3></h3>
         <p class="read-the-docs">
         </p>
+        <button id="counter" type="button"></button>
       </div>
     </div>
   </section>
@@ -125,27 +120,25 @@ fetch(
   .then((data) => {
     console.log(data);
 
-    const movieList = document.getElementById("posters");
+    const movieList = document.getElementById("poster-images");
     const watchMovies = document.getElementById("watch-list");
-    const favouriteMovies = document.getElementById("favorites");
+    const favouriteMovies = document.getElementById("favorites"); 
     const likedMovies = document.getElementById("liked-movies");
+
     for (let index = 0; index < data.results.length; index++) {
-      watchMovies.innerHTML = data.results[index];
-      favouriteMovies.innerHTML = data.results[index];
-      likedMovies.innerHTML = data.results[index];
       const movie = data.results[index];
       const posterPath = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
         : "https://via.placeholder.com/500x750?text=No+Image+Available";
 
       const img = document.createElement("img");
-      const addDiv = document.createElement("div");
-      addDiv.className = "details";
+      const paragraphTag = document.createElement("p");
+      const heading = document.createElement("h3");
       img.src = posterPath;
       img.alt = movie.title;
       img.className = "movie-poster";
+      paragraphTag.className = "paragraph";
       movieList.appendChild(img);
-      movieList.appendChild(addDiv);
     }
   })
   .catch((err) => console.error(err));

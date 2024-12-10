@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.watchlist {
+  width: 24px;
+  height: 24px;
+}
+
+.hero-image,
+.hero-image-two,
+.hero-image-three,
+.hero-image-four {
+  width: 250px;
+  height: 300px;
+  margin: 10px;
+  border: 1px solid #fff;
+}
+
+.movies {
+  border-radius: 24px;
+  padding: 4px 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  z-index: 1;
+}
+
+.carousel-images {
+  /* overflow: hidden; */
+  width: 90%;
+}
+
+.carousel {
+  transform-style: preserve-3d;
+}
+
+.movie-poster {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: auto;
+  transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+}
+
+.movie-poster.first-image,
+.movie-poster.active {
+  opacity: 1;
+  position: relative;
+  width: 100%;
+  /* z-index: 900; */
+}
+
+.carousel-photo.prev,
+.carousel-photo.next {
+  z-index: 800;
+}
+.carousel-photo.prev {
+  transform: translateX(-100%); /* Move 'prev' item to the left */
+}
+.carousel-photo.next {
+  transform: translateX(100%); /* Move 'next' item to the right */
+}
+
+.carousel-button-prev,
+.carousel-button-next {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001; /* Sit on top of everything */
+  border: 1px solid black;
+}
+.carousel-button-prev {
+  left: 0;
+}
+.carousel-button-next {
+  right: 0;
+}
+.carousel-button-prev::after,
+.carousel-button-next::after {
+  content: " ";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 54%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.carousel-button-next::after {
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -109,8 +109,6 @@ header {
   justify-content: center;
   gap: 1rem;
   position: absolute;
-  top: 50%;
-  z-index: 1;
 }
 
 h1 {
@@ -151,11 +149,36 @@ h1 {
 }
 
 #overlay {
-  width: 100%;
-  background-color: #e8e4e4;
+  background-color: transparent;
+  padding: 0 1em;
   color: #fff;
   position: absolute;
-  bottom: 50%;
+  bottom: 24px;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.search-bar {
+  width: 100%;
+  height: 40px;
+  padding: 1em;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading-three-item {
+  text-align: left;
+}
+
+.para-one {
+  width: 70%;
+  text-align: left;
+  font-size: 14px;
+  color: #cec6c6;
 }
 
 .read-the-docs {
@@ -167,17 +190,18 @@ h1 {
   outline: none;
   transition: border-color 0.25s;
   outline: none;
-  padding: 1.1em;
+  padding: 10px;
+  background-color: transparent;
 }
 
-#input-field:hover {
+/* #input-field:hover {
   border-color: #646cff;
 }
 
 #input-field:focus,
 #input-field:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 button {
   border-radius: 8px;
@@ -189,6 +213,21 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+#cta {
+  border-radius: none;
+  background-color: #048404;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 button:hover {
@@ -213,8 +252,8 @@ img {
 }
 
 .dots {
-  height: 15px;
-  width: 15px;
+  height: 8px;
+  width: 8px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -236,12 +275,10 @@ img {
 #posters {
   width: 100%;
   display: flex;
-  flex-direction: column;
 }
 
 #poster-images {
   width: 100%;
-  height: 80vh;
   display: flex;
   margin: 0;
   position: relative;
@@ -250,6 +287,8 @@ img {
 
 #movies {
   display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 #search-btn {
@@ -265,26 +304,4 @@ img {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-@keyframes movie-poster {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

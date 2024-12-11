@@ -11,7 +11,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,7 +21,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #fff;
   text-decoration: inherit;
 }
 a:hover {
@@ -140,12 +140,12 @@ h1 {
 #watch-list,
 #favorites,
 #liked-movies {
-  width: 200px;
-  height: 300px;
   margin: 8px;
   background-color: #060606;
   border: 1px solid #fff;
   position: relative;
+  display: flex;
+  align-items: flex-start;
 }
 
 #overlay {
@@ -172,12 +172,12 @@ h1 {
 
 .heading-three-item {
   text-align: left;
+  font-size: 1.1rem;
 }
 
 .para-one {
-  width: 70%;
   text-align: left;
-  font-size: 14px;
+  font-size: 0.5em;
   color: #cec6c6;
 }
 
@@ -206,8 +206,8 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 1em 2em;
+  font-size: 0.5em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -275,10 +275,12 @@ img {
 #posters {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 #poster-images {
-  width: 100%;
+  width: 200px;
+  height: 300px;
   display: flex;
   margin: 0;
   position: relative;

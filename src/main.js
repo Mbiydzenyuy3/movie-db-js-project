@@ -1,6 +1,7 @@
 import "./main.css";
 import "./style.css";
 import "./carousel.js";
+import "./api.js";
 document.querySelector("#app").innerHTML = `
   <header id="header">
           <nav class="nav-bar">
@@ -62,7 +63,7 @@ document.querySelector("#app").innerHTML = `
             </form>
           </div>
   </header>
-  <section id="hero-section" 
+  <section id="hero-section" style = "background-image: url{ }">
     <div class = "carousel-images">
       <div class = "carousel" >
         <img src="/assets/img/swagger(1).jpg" alt="" class="img-carousel first-image" />
@@ -74,98 +75,108 @@ document.querySelector("#app").innerHTML = `
         <div class="carousel-button-next"></div>
         <div class="carousel-button-prev"></div>
       </div>
+      <div class="overlay-position">
+          <p class="paragraph-one">
+            Watch the best trailers and add to your favourite and watchlist.    
+          </p>
+          <span class="rating"></span>
+          <div class = "buttons">
+            <button id="cta" type="button">
+              <span>Watch Trailer</span>
+              </button>
+              <button id="counter" type="button">Add watchlist</button>
+          </div>
+      </div>
       <div style="text-align:center">
       <span class="dots"></span> 
       <span class="dots"></span> 
       <span class="dots"></span> 
     </div>
-      <div class="overlay">
-          <span class="movies">Movies</span>
-          <h3 class="heading-three"></h3>
-          <p class="paragraph-one">
-          </p>
-          <span class="rating"></span>
-          <div class = "buttons">
-          <button id="cta" type="button">
-            <img src="" alt="" class="watchlist" />
-              <span>Watch Trailer</span>
-              </button>
-              <button id="counter" type="button">Add watchlist</button>
-            </div>
-      </div>
+      
     </div>
   </section>
   <section class="brand-logos">
     <div class="logo-slider">
-      <div class ="logo-one"></div>
-      <div class ="logo-two"></div>
-      <div class ="logo-three"></div>
-      <div class ="logo-four"></div>
-      <div class ="logo-five"></div>
-      <div class ="logo-six"></div>
-      <div class ="logo-seven"></div>
-    </div>
-  </section>
-  <section id="cards">
-    <div id="posters" class="slider-wrapper">
-      <div class ="hero-image"></div>
-      <div class ="hero-image-two"></div>
-      <div class ="hero-image-three"></div>
-      <div class ="hero-image-four"></div>
-    </div>
-  </section>
-  
-  <section class="watched">
-  <div id = "hero" class = "carousel-wrapper">
-      <div id = "poster-images" class = "carousel-slides" >
-        <div id="overlay">
-          <span class="movies">Movies</span>
-          <h3 class="heading-three-item"></h3>
-          <p class="para-one">
-          </p>
-          <span class="rating"></span>
-          <div class = "buttons">
-          <button id="cta" type="button">
-            <img src="" alt="" class="watchlist" />
-              <span>Watch Trailer</span>
-              </button>
-              <button id="counter" type="button">Add watchlist</button>
-            </div>
-          
-        </div>
+      <div class ="logo-one">
+      <img src="/assets/img/disney.png" alt="" class="logos" />
       </div>
+      <div class ="logo-two"><img src="/assets/img/netflix.png" alt="" class="logos" /></div>
+      <div class ="logo-three"><img src="/assets/img/hbo-max.png" alt="" class="logos" /></div>
+      <div class ="logo-four"><img src="/assets/img/pixar.png" alt="" class="logos" /></div>
+      <div class ="logo-five"><img src="/assets/img/marvel.png" alt="" class="logos" /></div>
+      <div class ="logo-six"><img src="/assets/img/starwars.png" alt="" class="logos" /></div>
+      <div class ="logo-seven"><img src="/assets/img/national geographic.png" alt="" class="logos" /></div>
     </div>
   </section>
   <section id = "movies">
-  <div id="watch-list">
-    <img src = "" alt = "image-jpg">
+    <div class = "content">
+    <h2>Trending Movies</h2>
+    <div id="watch-list" >
+      <img src = "" alt = "image-jpg">
       <div id="overlay-one">
-        <h3 class="heading-three"></h3>
-        <p class="paragraph-one">
-        </p>
+        <div class ="watch-content">
+          <h3></h3>
+          <p class="read-the-docs">
+          </p>
+        </div>
         <button id="counter" type="button"></button>
       </div>
-  </div>
-  <div id="favorites">
-    <img src = "" alt = "image-jpg">
-      <div id="overlay-two">
-        <h3></h3>
-        <p class="read-the-docs">
-        </p>
-        <button id="counter" type="button"></button>
+    </div> 
+    </div>
+    <div class = "content">
+      <h2>Popular Movies</h2>
+      <div id = "hero" class = "carousel-wrapper">
+      <div id = "poster-images" class = "carousel-slides" >
+        
       </div>
-  </div>
-  <div id="liked-movies">
+    </div>
+    <div class = "content">
+      <h2>Upcoming Movies</h2>
+      <div id="liked-movies">
       <img src = "" alt = "image-jpg">
       <div id="overlay-three">
-        <h3></h3>
-        <p class="read-the-docs">
-        </p>
+        <div class ="liked-content">
+          <h3></h3>
+          <p class="read-the-docs">
+          </p>
+        </div>
         <button id="counter" type="button"></button>
       </div>
-  </div>
+    </div>
+    </div>
   </section>
- 
+  <footer>
+    <div class = "footer">
+      <div class = "footer-item-one">
+        <div class="footer-heading">
+          <h3>Our platform is trusted by millions & features best updated movies all around the world.</h3>
+        </div>
+      </div>
+      <div class = "footer-item-two">
+        <ul class="unordered-list">
+          <div class="links"><a href="">Home</a>/</div>
+          <div class="links"><a href="">Release</a>/</div>
+          <div class="links"><a href="">Discover</a>/</div>
+        </ul>
+        <div class="social-media">
+          <img class = "social-media-icon" src="/assets/img/Facebook.png" alt="facebook-icon" />
+          <img class = "social-media-icon" src="/assets/img/Instagram.png" alt="instagram-icon" />
+          <img class = "social-media-icon" src="/assets/img/Twitter.png" alt="twitter-icon" />
+          <img class = "social-media-icon" src="/assets/img/Google.png" alt="google-icon" />
+        </div>
+      </div>
+      </div>
+      <div class = "contact-footer">
+        <div class="contact-policy">
+          <span>Privacy Policy</span>
+          <span>Terms of service</span>
+          <span>Language</span>
+        </div>
+        <div class="copyright">
+          &copy 2024
+        </div>
+      </div>
+  </footer>
 `;
 const options = {
   method: "GET",
@@ -185,15 +196,10 @@ fetch(
     console.log(data);
 
     const movieList = document.getElementById("poster-images");
-    const watchMovies = document.getElementById("watch-list");
-    const favouriteMovies = document.getElementById("favorites");
-    const likedMovies = document.getElementById("liked-movies");
     const overlayClass = document.querySelector(".heading-three-item");
     const paraTag = document.querySelector(".para-one");
-    const classHeroImage = document.querySelector(".hero-image");
-    const carouselImages = document.querySelector(".carousel-images");
 
-    for (let index = 0; index < 14; index++) {
+    for (let index = 0; index < data.results.lenghth; index++) {
       const movie = data.results[index];
       const posterPath = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`

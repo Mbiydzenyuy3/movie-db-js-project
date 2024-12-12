@@ -63,17 +63,9 @@ document.querySelector("#app").innerHTML = `
             </form>
           </div>
   </header>
-  <section id="hero-section" style = "background-image: url{ }">
+  <section id="hero-section" style = "background-image: url()">
     <div class = "carousel-images">
       <div class = "carousel" >
-        <img src="/assets/img/swagger(1).jpg" alt="" class="img-carousel first-image" />
-        <img src="/assets/img/how to get away with murder(1)" alt="" class="img-carousel" />
-        <img src="/assets/img/first-match" alt="" class="img-carousel" />
-        <img src="/assets/img/bel-air(1)" alt="" class="img-carousel" />
-        <img src="/assets/img/lioness(1)" alt="" class="img-carousel" />
-        <img src="/assets/img/gardians(1)" alt="" class="img-carousel" />
-        <div class="carousel-button-next"></div>
-        <div class="carousel-button-prev"></div>
       </div>
       <div class="overlay-position">
           <p class="paragraph-one">
@@ -87,13 +79,64 @@ document.querySelector("#app").innerHTML = `
               <button id="counter" type="button">Add watchlist</button>
           </div>
       </div>
-      <div style="text-align:center">
-      <span class="dots"></span> 
-      <span class="dots"></span> 
-      <span class="dots"></span> 
+      <div style="text-align: right; width: 100%">
+        <span class="dots"></span> 
+        <span class="dots"></span> 
+        <span class="dots"></span> 
+      </div>
     </div>
-      
-    </div>
+  </section>
+  <section class="week-popular">
+    <div class="pop"><h3>Most Recent Movies</h3></div>
+    <div class="second-catt">
+      <div class="cattii-i">
+        <div class="num">1</div>
+        <div class="cattii-img">
+          <img src="./images/imagee.avif" alt="img" />
+        </div>
+        <div class="cattii-t">
+          <div class="pg">PG-13</div>
+          <h4>wonder woman</h4>
+          <span class="supp"><p>SuperHero.Action</p></span>
+          <p>⭐ 4.3| Movies</p>
+        </div>
+      </div>
+      <div class="cattii-i">
+        <div class="num">2</div>
+        <div class="cattii-img">
+          <img src="./images/imagee.avif" alt="img" />
+        </div>
+        <div class="cattii-t">
+          <div class="pg">PG-13</div>
+          <h4>wonder woman</h4>
+          <span class="supp"><p>SuperHero.Action</p></span>
+          <p>⭐ 4.3| Movies</p>
+        </div>
+      </div>
+      <div class="cattii-i">
+        <div class="num">3</div>
+        <div class="cattii-img">
+          <img src="./images/imagee.avif" alt="img" />
+        </div>
+        <div class="cattii-t">
+          <div class="pg">PG-13</div>
+          <h4>wonder woman</h4>
+          <span class="supp"><p>SuperHero.Action</p></span>
+          <p>⭐ 4.3| Movies</p>
+        </div>
+      </div>
+      <div class="cattii-i">
+        <div class="num">4</div>
+        <div class="cattii-img">
+          <img src="./images/imagee.avif" alt="img" />
+        </div>
+        <div class="cattii-t">
+          <div class="pg">PG-13</div>
+          <h4>wonder woman</h4>
+          <span class="supp"><p>SuperHero.Action</p></span>
+          <p>⭐ 4.3| Movies</p>
+        </div>
+      </div>
   </section>
   <section class="brand-logos">
     <div class="logo-slider">
@@ -106,12 +149,14 @@ document.querySelector("#app").innerHTML = `
       <div class ="logo-five"><img src="/assets/img/marvel.png" alt="" class="logos" /></div>
       <div class ="logo-six"><img src="/assets/img/starwars.png" alt="" class="logos" /></div>
       <div class ="logo-seven"><img src="/assets/img/national geographic.png" alt="" class="logos" /></div>
+      <div class ="logo-seven"><img src="/assets/img/youTube.png" alt="" class="logos" /></div>
+      <div class ="logo-seven"><img src="/assets/img/webseries.png" alt="" class="logos" /></div>
     </div>
   </section>
   <section id = "movies">
     <div class = "content">
-    <h2>Trending Movies</h2>
-    <div id="watch-list" >
+    <h2>Popular Movies</h2>
+    <div class="watch-list" >
       <img src = "" alt = "image-jpg">
       <div id="overlay-one">
         <div class ="watch-content">
@@ -119,15 +164,16 @@ document.querySelector("#app").innerHTML = `
           <p class="read-the-docs">
           </p>
         </div>
-        <button id="counter" type="button"></button>
+        <button id="counter" type="button">add to list</button>
       </div>
     </div> 
     </div>
     <div class = "content">
-      <h2>Popular Movies</h2>
-      <div id = "hero" class = "carousel-wrapper">
-      <div id = "poster-images" class = "carousel-slides" >
-        
+      <h2>Trending Movies</h2>
+      <div id = "hero" class ="carousel-wrapper">
+        <div id = "poster-images" class = "carousel-slides favorites" >
+          <div class="poster-details"></div>
+        </div>
       </div>
     </div>
     <div class = "content">
@@ -178,6 +224,7 @@ document.querySelector("#app").innerHTML = `
       </div>
   </footer>
 `;
+
 const options = {
   method: "GET",
   headers: {
@@ -188,144 +235,22 @@ const options = {
 };
 
 fetch(
-  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
+  "https://api.themoviedb.org/3/account/21673805/favorite/movies?language=en-US&page=1&sort_by=created_at.asc",
   options
 )
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
 
-    const movieList = document.getElementById("poster-images");
-    const overlayClass = document.querySelector(".heading-three-item");
-    const paraTag = document.querySelector(".para-one");
-
-    for (let index = 0; index < data.results.lenghth; index++) {
-      const movie = data.results[index];
-      const posterPath = movie.poster_path
-        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-        : "https://via.placeholder.com/500x750?text=No+Image+Available";
-      overlayClass.innerHTML = data.results[0].original_title;
-      paraTag.innerHTML = data.results[0].overview;
-
+    data.results.forEach((movie, index) => {
+      const movieList = document.querySelector(".carousel-images");
       const img = document.createElement("img");
-      const paragraphTag = document.createElement("p");
-      const heading = document.createElement("h3");
-      img.src = posterPath;
+      img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
       img.alt = movie.title;
       img.className = "movie-poster";
-      if (index === 0) {
-        img.classList.add("first-image");
-      }
-      paragraphTag.className = "paragraph";
-      movieList.appendChild(img);
-    }
+      for (let index = 0; index < data.results.length; index++) {}
+    });
   })
   .catch((err) => console.error(err));
-
-!(function (d) {
-  // Set classes
-  let itemClassName = "carousel-images";
-  let items = d.getElementsByClassName(itemClassName),
-    totalItems = items.length,
-    slide = 0,
-    moving = true;
-
-  function setInitialClasses() {
-    // Targets the previous, current, and next items
-    // This assumes there are at least three items.
-    items[totalItems - 1].classList.add("prev");
-    items[0].classList.add("active");
-    items[1].classList.add("next");
-  }
-  // Set event listeners
-  function setEventListeners() {
-    let next = d.getElementsByClassName("carousel-button-next")[0],
-      prev = d.getElementsByClassName("carousel-button-prev")[0];
-    next.addEventListener("click", moveNext);
-    prev.addEventListener("click", movePrev);
-  }
-
-  // Next navigation handler
-  function moveNext() {
-    // Check if moving
-    if (!moving) {
-      // If it's the last slide, reset to 0, else +1
-      if (slide === totalItems - 1) {
-        slide = 0;
-      } else {
-        slide++;
-      }
-      // Move carousel to updated slide
-      moveCarouselTo(slide);
-    }
-  }
-  // Previous navigation handler
-  function movePrev() {
-    // Check if moving
-    if (!moving) {
-      // If it's the first slide, set as the last slide, else -1
-      if (slide === 0) {
-        slide = totalItems - 1;
-      } else {
-        slide--;
-      }
-
-      // Move carousel to updated slide
-      moveCarouselTo(slide);
-    }
-  }
-
-  function disableInteraction() {
-    // Set 'moving' to true for the same duration as our transition.
-    // (0.5s = 500ms)
-
-    moving = true;
-    // setTimeout runs its function once after the given time
-    setTimeout(function () {
-      moving = false;
-    }, 5000);
-  }
-
-  function moveCarouselTo(slide) {
-    // Check if carousel is moving, if not, allow interaction
-    if (!moving) {
-      // temporarily disable interactivity
-      disableInteraction();
-      // Update the "old" adjacent slides with "new" ones
-      var newPrevious = slide - 1,
-        newNext = slide + 1,
-        oldPrevious = slide - 2,
-        oldNext = slide + 2;
-      // Test if carousel has more than three items
-      if (totalItems - 1 > 3) {
-        // Checks and updates if the new slides are out of bounds
-        if (newPrevious <= 0) {
-          oldPrevious = totalItems - 1;
-        } else if (newNext >= totalItems - 1) {
-          oldNext = 0;
-        }
-        // Checks and updates if slide is at the beginning/end
-        if (slide === 0) {
-          newPrevious = totalItems - 1;
-          oldPrevious = totalItems - 2;
-          oldNext = slide + 1;
-        } else if (slide === totalItems - 1) {
-          newPrevious = slide - 1;
-          newNext = 0;
-          oldNext = 1;
-        }
-        // Now we've worked out where we are and where we're going,
-        // by adding/removing classes we'll trigger the transitions.
-        // Reset old next/prev elements to default classes
-        items[oldPrevious].className = itemClassName;
-        items[oldNext].className = itemClassName;
-        // Add new classes
-        items[newPrevious].className = itemClassName + " prev";
-        items[slide].className = itemClassName + " active";
-        items[newNext].className = itemClassName + " next";
-      }
-    }
-  }
-})(document);
 
 // setupCounter(document.querySelector("#counter"));

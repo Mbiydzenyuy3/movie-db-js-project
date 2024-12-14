@@ -11,16 +11,28 @@ async function fetchMovies() {
   }
 }
 function displayMovies(movies) {
-  const movieContainer = document.querySelector(".watch-list");
+  const movieContainer = document.querySelector(".item-wrapper");
   movieContainer.innerHTML = "";
   movies.forEach((movie) => {
     const movieCard = document.createElement("div");
     movieCard.classList.add("movie-card");
+    const cardDetail = document.createElement("div");
+    cardDetail.className = "movie-details";
+    movieCard.appendChild(cardDetail);
+
     const movieTitle = document.createElement("h3");
+    movieTitle.className = "movie-title";
     movieTitle.textContent = movie.title;
+
     const movieParagraph = document.createElement("p");
+    movieParagraph.className = "movie-paragraph";
     movieParagraph.textContent = movie.paragraph;
+    movieParagraph.innerHTML = `&#11088; ${movie.vote_average}`;
+    cardDetail.appendChild(movieTitle);
+    cardDetail.appendChild(movieParagraph);
+
     const moviePoster = document.createElement("img");
+    moviePoster.className = "movie-poster";
     moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
     movieCard.appendChild(moviePoster);
     movieCard.appendChild(movieTitle);

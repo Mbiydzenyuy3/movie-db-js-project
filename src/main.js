@@ -281,15 +281,14 @@ document.querySelector("#app").innerHTML = `
 </section>
 
 <section id="just-release">
-    <div class="container">
+  <div class="container">
     <div class="release-heading-wrapper">
       <h3 class="heading">Just Release</h3>
     </div>
-    
-      <div class="just-release-wrapper">
+    <div class="just-release-wrapper">
             
-      </div>
     </div>
+  </div>
 </section>
 
 <section id="watch-list">
@@ -377,45 +376,33 @@ swiper = new Swiper(".swiper", {
 
 // setupCounter(document.querySelector("#counter"));
 
+// API for release movie section
 const options = {
   method: "GET",
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZWYzNjNmOWY5YTNjNTUzNTE0OWM5MDk3MGZhMjMxMSIsIm5iZiI6MTczMzUxMDAxOS40MTYsInN1YiI6IjY3NTM0MzgzODcxYTQyYzljMjQ1NDFhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FgU6EplfTnUB-e6GZZfUI7lO0Ad71oYwG54qzjXpozo",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmEwM2JhZjAwODc4YTBhNmE4MDYwN2U1ZGI5NzFmMCIsIm5iZiI6MTczMzc4Mzc4MC4yNTUsInN1YiI6IjY3NTc3MGU0MGFiN2U4MDc3Y2ZiZjFlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XXDs4eNLPoVC8cYP4I4R_ZT48CSvQPpCMqUGOWCPlVk",
   },
 };
-
-fetch("https://api.themoviedb.org/3/trending/all/day?language=en-US", options)
+fetch(
+  "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc",
+  options
+)
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
-    function displayMovies(topmovies) {
-      const movieContainer = document.querySelector(".just-release-wrapper");
-      movieContainer.innerHTML = "";
-      topmovies.forEach((movie) => {
-        // const movieCard = document.createElement("div");
-        // movieCard.classList.add("movie-card");
-        // const cardDetail = document.createElement("div");
-        // cardDetail.className = "movie-details";
-        // movieCard.appendChild(cardDetail);
-        // const movieTitle = document.createElement("h3");
-        // movieTitle.className = "watch-list-movie-title";
-        // movieTitle.textContent = movie.title;
-        // const movieParagraph = document.createElement("p");
-        // movieParagraph.className = "movie-paragraph";
-        // movieParagraph.textContent = movie.paragraph;
-        // movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Mystery - Movies`;
-        // cardDetail.appendChild(movieTitle);
-        // cardDetail.appendChild(movieParagraph);
-        // const moviePoster = document.createElement("img");
-        // moviePoster.className = "movie-poster";
-        // moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-        // movieCard.appendChild(moviePoster);
-        // movieCard.appendChild(movieTitle);
-        // movieCard.appendChild(movieParagraph);
-        // movieContainer.appendChild(movieCard);
-      });
+    const firstSection = document.querySelector(".just-release-wrapper");
+    for (let index = 0; index < data.results.length; index++) {
+      const movie = data.results[index];
+      const posterPath = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        : "https://via.placeholder.com/500x750?text=No+Image+Available";
+      const img = document.createElement("img");
+      img.src = posterPath;
+      img.alt = movie.title;
+      img.className = "movie-poster";
+      firstSection.appendChild(img);
     }
   })
   .catch((err) => console.error(err));

@@ -307,7 +307,7 @@ button {
   margin-bottom: 1rem;
 }
 
-.just-release {
+.just-release-wrapper {
   width: 240px;
   height: 350px;
   border-radius: 1rem;
@@ -315,7 +315,7 @@ button {
   overflow: hidden;
 }
 
-.just-release::before {
+.just-release-wrapper::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -337,7 +337,7 @@ button {
 .item-wrapper-one {
   /* width: 100%; */
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(20, 300px);
   /* overflow-y: hidden; */
   overflow: hidden;
   gap: 1rem;

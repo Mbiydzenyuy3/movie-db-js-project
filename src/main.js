@@ -59,8 +59,7 @@ document.querySelector("#app").innerHTML = `
                     </div>
                 </div>
             </div>
-        </section>
-
+    </section>
     <section class="brand-logos">
       <div class="container logo-slider">
         <div class="logo-item">
@@ -85,9 +84,9 @@ document.querySelector("#app").innerHTML = `
         <div class="new-popular-wrapper swiper-wrapper">
           <div class="new-popular-item swiper-slide">
             <div class="number">1</div>
-            <div class="image-popular-release">
+            <a href="" class="image-popular-release">
               <img class="poster-img" src="/assets/img/badboys.jpg" alt="img">
-            </div>
+            </a>
             <div class="release-overwiew">
               <div class="pg-age">PG-13</div>
               <h4 class="new-release-title">wonder woman</h4>
@@ -99,93 +98,197 @@ document.querySelector("#app").innerHTML = `
           </div>
           <div class="new-popular-item swiper-slide">
             <div class="number">2</div>
-            <div class="image-popular-release">
-              <img class="poster-img" src="/assets/img/thebeekeeper.jpg" alt="img">
-            </div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/furry.jpg" alt="img">
+            </a>
             <div class="release-overwiew">
               <div class="pg-age">PG-13</div>
-              <h4>wonder woman</h4>
+              <h4 class="new-release-title">Mad Furry</h4>
               <span class="movie-genre">
-                <p>SuperHero.Action</p>
+                <p>SuperHero - Action</p>
               </span>
-              <p class="movie-star">⭐ 4.3| Movies</p>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
             </div>
-          </div>
-          <div class="new-popular-item swiper-slide">
+         </div>
+         <div class="new-popular-item swiper-slide">
             <div class="number">3</div>
-            <div class="image-popular-release">
-              <img class="poster-img" src="/assets/img/lioness(1).jpg" alt="img">
-            </div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/damsel.jpg" alt="img">
+            </a>
             <div class="release-overwiew">
               <div class="pg-age">PG-13</div>
-              <h4>wonder woman</h4>
+              <h4 class="new-release-title">Damsel</h4>
               <span class="movie-genre">
-                <p>SuperHero.Action</p>
+                <p>SuperHero - Action</p>
               </span>
-              <p class="movie-star">⭐ 4.3| Movies</p>
-            </div>
-          </div>
-          <div class="new-popular-item swiper-slide">
-            <div class="number">3</div>
-            <div class="image-popular-release">
-              <img class="poster-img" src="/assets/img/lioness(1).jpg" alt="img">
-            </div>
-            <div class="release-overwiew">
-              <div class="pg-age">PG-13</div>
-              <h4>wonder woman</h4>
-              <span class="movie-genre">
-                <p>SuperHero.Action</p>
-              </span>
-              <p class="movie-star">⭐ 4.3| Movies</p>
-            </div>
-          </div>        
-          <div class="new-popular-item swiper-slide">
-            <div class="number">3</div>
-            <div class="image-popular-release">
-              <img class="poster-img" src="/assets/img/lioness(1).jpg" alt="img">
-            </div>
-            <div class="release-overwiew">
-              <div class="pg-age">PG-13</div>
-              <h4>wonder woman</h4>
-              <span class="movie-genre">
-                <p>SuperHero.Action</p>
-              </span>
-              <p class="movie-star">⭐ 4.3| Movies</p>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
             </div>
           </div>
           <div class="new-popular-item swiper-slide">
             <div class="number">4</div>
-            <div class="image-popular-release">
-              <img class="poster-img" src="/assets/img/kraven.jpg" alt="img">
-            </div>
-            <a href="" class="release-overwiew">
-              <div class="pg-age">PG-13</div>
-              <h4>wonder woman</h4>
-              <span class="movie-genre">
-                <p>SuperHero.Action</p>
-              </span>
-              <p class="movie-star">⭐ 4.3| Movies</p>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/hellboy.jpg" alt="img">
             </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Hellboy</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
           </div>
-        </div>
-        <div class="swiper-button-next"></div>
-    </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">5</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/gardians(1).jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Gardians of the Galaxy</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">6</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/kingdomofapes.jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Kingdom of Apes</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">7</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/thebeekeeper.jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">The Beekeeper</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div><div class="new-popular-item swiper-slide">
+            <div class="number">8</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/kraven.jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Kraven</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">9</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/lioness(1).jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Lioness</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">10</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/lucifer.jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Lucifer</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+        <div class="new-popular-item swiper-slide">
+            <div class="number">11</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/imagee.avif" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Avif</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">12</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/after.jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">After</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">13</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/fifthy shades.jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">Fifthy Shades</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+          <div class="new-popular-item swiper-slide">
+            <div class="number">14</div>
+            <a href="" class="image-popular-release">
+              <img class="poster-img" src="/assets/img/first-match(1).jpg" alt="img">
+            </a>
+            <div class="release-overwiew">
+              <div class="pg-age">PG-13</div>
+              <h4 class="new-release-title">First Match</h4>
+              <span class="movie-genre">
+                <p>SuperHero - Action</p>
+              </span>
+              <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
+            </div>
+          </div>
+       </div>
 </section>
 
 <section id="just-release">
     <div class="container">
-    <h3 class="heading">Just Release</h3>
-        <div class="just-release">
-            <div class="just-release-poster">
-                <img src="/assets/img/kingdomofapes.jpg" alt="poster">
-            </div>
-            <div class="just-release-info">
-                <h3 class="just-release-title">
-                    Kingdom of Apes
-                </h3>
-                <p class="movie-star">&#11088 4.6 | <span>Mystery - Movie</span></p>
-            </div>
-        </div>
+    <div class="release-heading-wrapper">
+      <h3 class="heading">Just Release</h3>
+    </div>
+    
+      <div class="just-release-wrapper">
+            
+      </div>
     </div>
 </section>
 
@@ -283,41 +386,35 @@ const options = {
   },
 };
 
-fetch(
-  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-  options
-)
+fetch("https://api.themoviedb.org/3/trending/all/day?language=en-US", options)
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
     function displayMovies(topmovies) {
-      const movieContainer = document.querySelector(".item-wrapper-one");
+      const movieContainer = document.querySelector(".just-release-wrapper");
       movieContainer.innerHTML = "";
       topmovies.forEach((movie) => {
-        const movieCard = document.createElement("div");
-        movieCard.classList.add("movie-card");
-        const cardDetail = document.createElement("div");
-        cardDetail.className = "movie-details";
-        movieCard.appendChild(cardDetail);
-
-        const movieTitle = document.createElement("h3");
-        movieTitle.className = "watch-list-movie-title";
-        movieTitle.textContent = movie.title;
-
-        const movieParagraph = document.createElement("p");
-        movieParagraph.className = "movie-paragraph";
-        movieParagraph.textContent = movie.paragraph;
-        movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Horror - Movies`;
-        cardDetail.appendChild(movieTitle);
-        cardDetail.appendChild(movieParagraph);
-
-        const moviePoster = document.createElement("img");
-        moviePoster.className = "movie-poster";
-        moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-        movieCard.appendChild(moviePoster);
-        movieCard.appendChild(movieTitle);
-        movieCard.appendChild(movieParagraph);
-        movieContainer.appendChild(movieCard);
+        // const movieCard = document.createElement("div");
+        // movieCard.classList.add("movie-card");
+        // const cardDetail = document.createElement("div");
+        // cardDetail.className = "movie-details";
+        // movieCard.appendChild(cardDetail);
+        // const movieTitle = document.createElement("h3");
+        // movieTitle.className = "watch-list-movie-title";
+        // movieTitle.textContent = movie.title;
+        // const movieParagraph = document.createElement("p");
+        // movieParagraph.className = "movie-paragraph";
+        // movieParagraph.textContent = movie.paragraph;
+        // movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Mystery - Movies`;
+        // cardDetail.appendChild(movieTitle);
+        // cardDetail.appendChild(movieParagraph);
+        // const moviePoster = document.createElement("img");
+        // moviePoster.className = "movie-poster";
+        // moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+        // movieCard.appendChild(moviePoster);
+        // movieCard.appendChild(movieTitle);
+        // movieCard.appendChild(movieParagraph);
+        // movieContainer.appendChild(movieCard);
       });
     }
   })

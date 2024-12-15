@@ -35,7 +35,7 @@ fetch(
       const movieParagraph = document.createElement("p");
       movieParagraph.className = "movie-paragraph";
       movieParagraph.textContent = movie.paragraph;
-      movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Action - Movies`;
+      movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Horror - Movies`;
       movieContainer.appendChild(movieTitle);
       movieContainer.appendChild(movieParagraph);
     });

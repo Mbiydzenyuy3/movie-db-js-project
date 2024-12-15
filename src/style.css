@@ -125,7 +125,7 @@ input[type="search"]:focus {
 }
 
 .slide-banner {
-  background-image: url("/public/assets/img/mandalorian\ bg.jpg");
+  background-image: url("/assets/img/mandalorian\ bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 100%;
@@ -310,7 +310,7 @@ button {
 .just-release {
   width: 240px;
   height: 350px;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -333,25 +333,37 @@ button {
 
 /* Watchlist section */
 
-.item-wrapper {
+.item-wrapper,
+.item-wrapper-one {
   /* width: 100%; */
   display: grid;
   grid-template-columns: repeat(20, 1fr);
-  overflow-y: hidden;
-  gap: 2rem;
+  /* overflow-y: hidden; */
+  overflow: hidden;
+  gap: 1rem;
 }
 
 .movie-card {
   width: 300px;
   height: 300px;
-  margin: 24px 0;
+  /* margin: 24px 0; */
 }
 
 .movie-poster {
   width: 300px;
-  height: 300px;
-  border-radius: 24px;
-  border-radius: 24px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 100% -50px;
+  border-radius: 1rem;
+}
+
+.watchlist-movie-title {
+  font-size: 1.25rem;
+  letter-spacing: -1px;
+}
+
+.movie-paragraph {
+  font-size: 14px;
 }
 
 

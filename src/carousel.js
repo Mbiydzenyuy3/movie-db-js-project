@@ -21,13 +21,13 @@ function displayMovies(movies) {
     movieCard.appendChild(cardDetail);
 
     const movieTitle = document.createElement("h3");
-    movieTitle.className = "movie-title";
+    movieTitle.className = "watch-list-movie-title";
     movieTitle.textContent = movie.title;
 
     const movieParagraph = document.createElement("p");
     movieParagraph.className = "movie-paragraph";
     movieParagraph.textContent = movie.paragraph;
-    movieParagraph.innerHTML = `&#11088; ${movie.vote_average}`;
+    movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Action - Movies`;
     cardDetail.appendChild(movieTitle);
     cardDetail.appendChild(movieParagraph);
 

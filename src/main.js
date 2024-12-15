@@ -172,7 +172,7 @@ document.querySelector("#app").innerHTML = `
     </div>
 </section>
 
-<section>
+<section id="just-release">
     <div class="container">
     <h3 class="heading">Just Release</h3>
         <div class="just-release">
@@ -189,23 +189,22 @@ document.querySelector("#app").innerHTML = `
     </div>
 </section>
 
-<section id="new-release">
-      <div class = "container">
-         <div class="new-release">
+<section id="watch-list">
+  <div class = "container">
+    <div class="watch-list-heading">
         <h3 class="heading">Your Watchlist</h3>
-      </div>
+    </div>
       <div class="item-wrapper">
         
-      </div>
-      </div>
-    </section>
-
-     <section id="watch-list">
-      <div class = "container">
-        <div class="watch-list">
-          <h3>Watch List</h3>
+    </div>
+  </div>
+</section>
+<section id="likes">
+    <div class = "container">
+        <div class="likes-heading">
+          <h3 class="heading">Likes</h3>
         </div>
-      <div class="item-wrapper">
+      <div class="item-wrapper-one">
         
       </div>
       </div>
@@ -273,6 +272,8 @@ swiper = new Swiper(".swiper", {
   },
 });
 
+// setupCounter(document.querySelector("#counter"));
+
 const options = {
   method: "GET",
   headers: {
@@ -283,24 +284,41 @@ const options = {
 };
 
 fetch(
-  "https://api.themoviedb.org/3/account/21673805/favorite/movies?language=en-US&page=1&sort_by=created_at.asc",
+  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
   options
 )
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
+    function displayMovies(topmovies) {
+      const movieContainer = document.querySelector(".item-wrapper-one");
+      movieContainer.innerHTML = "";
+      topmovies.forEach((movie) => {
+        const movieCard = document.createElement("div");
+        movieCard.classList.add("movie-card");
+        const cardDetail = document.createElement("div");
+        cardDetail.className = "movie-details";
+        movieCard.appendChild(cardDetail);
 
-    data.results.forEach((movie, index) => {
-      const movieList = document.querySelector("#watch-list");
-      const img = document.createElement("img");
-      img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-      img.alt = movie.title;
-      img.className = "movie-poster";
-      for (let index = 0; index < data.results.length; index++) {}
-    });
+        const movieTitle = document.createElement("h3");
+        movieTitle.className = "watch-list-movie-title";
+        movieTitle.textContent = movie.title;
+
+        const movieParagraph = document.createElement("p");
+        movieParagraph.className = "movie-paragraph";
+        movieParagraph.textContent = movie.paragraph;
+        movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Horror - Movies`;
+        cardDetail.appendChild(movieTitle);
+        cardDetail.appendChild(movieParagraph);
+
+        const moviePoster = document.createElement("img");
+        moviePoster.className = "movie-poster";
+        moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+        movieCard.appendChild(moviePoster);
+        movieCard.appendChild(movieTitle);
+        movieCard.appendChild(movieParagraph);
+        movieContainer.appendChild(movieCard);
+      });
+    }
   })
   .catch((err) => console.error(err));
-
-const TopRate_API = "https://api.themoviedb.org/3/movie/top_rated? api key=";
-
-// setupCounter(document.querySelector("#counter"));

@@ -202,6 +202,10 @@ button {
 .primary-cta {
   background-color: var(--primary-color);
   color: var(--gray-2);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding-inline: 1rem;
 }
 
 .secondary-cta {
@@ -213,6 +217,9 @@ button {
   background-color: transparent;
   color: var(--title-color);
   border: 1px solid var(--gray-12);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 /* Brand logos styles */
@@ -332,9 +339,12 @@ button {
 }
 
 /* Just Release Section */
-/* .just-release-wrapper {
-  
-} */
+.just-release-wrapper {
+  width: 300px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(20, 300px);
+}
 
 /* Watchlist section */
 

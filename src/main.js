@@ -12,8 +12,8 @@ document.querySelector("#app").innerHTML = `
           <nav class="navbar">
             <ul>
               <li><a href="./home.html">Home</a></li>
-              <li><a href="./movie.html">Movies</a></li>
-              <li><a href="./favorites.html">tv Shows</a></li>
+              <li><a href="./details.html">Movies</a></li>
+              <li><a href="./details.html">tv Shows</a></li>
             </ul>
           </nav>
           <div class="searchbar">
@@ -47,13 +47,15 @@ document.querySelector("#app").innerHTML = `
                         </p>
                         <div class="cta">
                             <button class="primary-cta">
-                                Watch Trailer
+                              <img src="/assets/img/play.png" alt="button play icon">
+                              <span>Play now</span>  
                             </button>
                             <button class="secondary-cta">
-                                Add watchlist
+                              <span> Watch trailer</span>
                             </button>
                             <button class="outline-cta">
-                                Add watchlist
+                             <img src="/assets/img/bookmark.png" alt="button play icon">
+                             <span>Add watchlist</span>
                             </button>
                         </div>
                     </div>
@@ -398,11 +400,18 @@ fetch(
       const posterPath = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
         : "https://via.placeholder.com/500x750?text=No+Image+Available";
+
       const img = document.createElement("img");
       img.src = posterPath;
       img.alt = movie.title;
-      img.className = "movie-poster";
+      img.className = "movie-poster-one";
       firstSection.appendChild(img);
+
+      // movieParagraph.className = "movie-paragraph";
+      // movieParagraph.textContent = movie.paragraph;
+      // movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Mystery - Movies`;
+      // addDiv.appendChild(movieTitle);
+      // addDiv.appendChild(movieParagraph);
     }
   })
   .catch((err) => console.error(err));

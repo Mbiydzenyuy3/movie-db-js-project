@@ -466,5 +466,5 @@ function startHeroSlider() {
     currentSlide = (currentSlide + 1) % trendingMovies.length;
     heroSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
     updateHeroContent(currentSlide);
-  }, 10000);
+  }, 5000);
 }

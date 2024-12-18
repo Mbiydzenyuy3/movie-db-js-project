@@ -14,30 +14,40 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    const movieList = document.querySelector(".item-wrapper-one");
+    const movieList = document.getElementById("swiper-wrapper-3");
 
-    data.results.forEach((movie, index) => {
+    for (let index = 0; index < data.results.length; index++) {
+      const movie = data.results[index];
+      const posterPath = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        : "https://via.placeholder.com/500x750?text=No+Image+Available";
+      const slide = document.createElement("div");
+      slide.className = "released-movies swiper-slide";
+      movieList.appendChild(slide);
       const img = document.createElement("img");
-      img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      img.src = posterPath;
       img.alt = movie.title;
-      img.className = "movie-poster";
-      if (index === 0) img.classList.add("first-image");
+      img.className = "movie-poster-one";
+      slide.appendChild(img);
 
-      const movieContainer = document.createElement("div");
-      movieContainer.className = "myFavorite";
-      movieContainer.appendChild(img);
-      movieList.appendChild(movieContainer);
-
-      const movieTitle = document.createElement("h3");
-      movieTitle.className = "watch-list-movie-title";
+      const movieTitle = document.createElement("h4");
+      movieTitle.className = "movie-title";
       movieTitle.textContent = movie.title;
+      slide.appendChild(movieTitle);
 
       const movieParagraph = document.createElement("p");
       movieParagraph.className = "movie-paragraph";
       movieParagraph.textContent = movie.paragraph;
-      movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Horror - Movies`;
-      movieContainer.appendChild(movieTitle);
-      movieContainer.appendChild(movieParagraph);
+      movieParagraph.innerHTML = `&#11088; ${movie.vote_average} | Mystery - Movies `;
+      slide.appendChild(movieParagraph);
+    }
+  })
+  .then(() => {
+    const swiper = new Swiper("#likes", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
     });
   })
   .catch((err) => console.error(err));

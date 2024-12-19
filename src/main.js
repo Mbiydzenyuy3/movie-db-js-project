@@ -29,8 +29,8 @@ document.querySelector("#app").innerHTML = `
           </div>
   </header>
 
-  <section class="hero-banner mySwiper" id="hero-section"> 
-   <div class="container swiper-wrapper-hero" id="swiper-wrapper-hero" >
+  <section class="hero-banner mySwiper" id="hero"> 
+   <div class="container " id="swiper-wrapper-hero" >
    </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>               

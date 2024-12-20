@@ -37,53 +37,17 @@
       </div>
     </header>
     <!-- hero section -->
-    <section class="hero-banner hero-swiper" id="hero-section-one">
+    <section class="hero-banner" id="hero-section-one">
       <div class="slide-banner overlay">
-        <div class="container swiper-container">
+        <div class="container">
 
-          <div class="movie-details">
-            <span class="movie-tag">
-              season 6
-            </span>
-            <h3 class="movie-title">
-              Star Wars: Mandalorian
-            </h3>
-            <span class="movie-meta">
-              2hr40m - 2022 - Fantasy - Action
-            </span>
-            <p class="movie-discription">
-              The Mandalorian protagonist, Din Djarin,but usually called “The Mandalorian” or shortened
-              “Mando”, is a lone fighter who earns his money as a bounty hunter five years after the sheer
-              fall of the Empire.
-            </p>
-            <div class="movie-info">
-              <div class="cta">
-                <button class="primary-cta">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                    fill="rgba(255,255,255,1)">
-                    <path
-                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM10.6219 8.41459C10.5562 8.37078 10.479 8.34741 10.4 8.34741C10.1791 8.34741 10 8.52649 10 8.74741V15.2526C10 15.3316 10.0234 15.4088 10.0672 15.4745C10.1897 15.6583 10.4381 15.708 10.6219 15.5854L15.5008 12.3328C15.5447 12.3035 15.5824 12.2658 15.6117 12.2219C15.7343 12.0381 15.6846 11.7897 15.5008 11.6672L10.6219 8.41459Z">
-                    </path>
-                  </svg>
-                  <span>Continue watching</span>
-                </button>
-                <button class="outline-cta">
-                  <span>Add watchlist</span>
-                </button>
-              </div>
-
-              <div class="details-btn">
-                <button class="outline-cta">
-                  <span>Download</span>
-                  <i class="ri-download-line"></i>
-                </button>
-                <button class="outline-cta">
-                  <span>share</span>
-                </button>
-                <button class="outline-cta">
-                  <span>Like</span>
-                </button>
-              </div>
+          <div class="movie-content">
+            <h1 id="movie-title">Movie Title</h1>
+            <span id="greyText"></span>
+            <div id="playBtn">
+              <button id="playOne"><i class="fa-solid fa-circle-play"></i> Play Now</button>
+              <button id="playThree"><i class="fa-regular fa-circle-play"></i> Watch Trailer</button>
+              <button class="bookmark-btn" id="playTwo"><i class="fa-regular fa-bookmark"></i> Add Watchlist</button>
             </div>
           </div>
         </div>
@@ -92,24 +56,24 @@
     <!-- about the movie -->
     <section id="movie-infos-page">
       <div class="container">
-        <div class="single-movie-info">
-          <h3 class="info-title">Story Line</h3>
-          <p class="movie-info-description">
-            When a villain kidnaps Santa Claus from the North Pole, an E.L.F. (Extremely Large and Formidable) operative
-            joins
-            forces with the world's most accomplished tracker to find him and save Christmas.
-          </p>
-        </div>
+        <h3>Story Line</h3>
+        <p id="movie-overview">Movie overview...</p>
         <div class="cast">
           <h3 class="cast-heading info-title">Top Cast</h3>
           <div class="cast-card">
-            <img class="cast-profile-image" src="assets/cast.png" alt="" />
-            <div class="cast-info">
-              <h5 class="cast-role">Pedro Pascal</h5>
-              <p class="cast-name">Joel Miller</p>
-            </div>
+
           </div>
         </div>
+      </div>
+    </section>
+    <!-- similar movies -->
+    <section id="similarMovies">
+      <h3>Similar Movies for you</h3>
+      <div class="carousel-wrapper">
+        <div class="carousel-container" id="watchlist-carousel">
+        </div>
+        <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
     <!-- footer section -->

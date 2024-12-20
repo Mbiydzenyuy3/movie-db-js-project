@@ -1,73 +1,102 @@
-// document.addEventListener("DOMContentLoaded", async () => {
-//   const movieData = localStorage.getItem("selectedMovie");
-
-//   if (!movieData) {
-//     console.error("No movie data found in localStorage.");
-//     return;
-//   }
-
-//   const movie = JSON.parse(movieData); // Parse the stored movie data
-//   displayMovieDetails(movie);
-
-//   // Fetch and display the cast
-//   await fetchAndDisplayCast(movie.id);
-// });
-
-// function displayMovieDetails(movie) {
-//   const heroSection = document.querySelector(".hero");
-
-//   if (!heroSection) {
-//     console.error("Hero section not found in the DOM.");
-//     return;
-//   }
-
-//   heroSection.innerHTML = `
-//     <div class="movie-poster" style="background-image: url(//image.tmdb.org/t/p/original${
-//       movie.poster_path || "path/to/fallback-image.jpg"
-//     });"></div>
-//     <div class="movie-details">
-//       <h1>${movie.title || movie.name}</h1>
-//       <p>${movie.overview || "No overview available."}</p>
-//       <div class="additional-info">
-//         <span>Release Date: ${movie.release_date || "N/A"}</span>
-//         <span>Rating: ${movie.vote_average || "N/A"}</span>
-//       </div>
-//     </div>
-//   `;
+// //  Retrieve movie details
+// const movie = JSON.parse(localStorage.getItem("selectedMovie"));
+// console.log(movie);
+// const API_KEY = "4ef363f9f9a3c5535149c90970fa2311";
+// const BASE_URL = "https://api.themoviedb.org/3";
+// const IMG_PATH = "https://image.tmdb.org/t/p/w500";
+// if (movie) {
+//   // Populate your HTML elements with movie data
+//   const movieSection = document.getElementById("hero-section-one");
+//   movieSection.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${
+//     movie.backdrop_path || movie.poster_path
+//   })')`;
+//   document.getElementById("movie-title").textContent = movie.title;
+//   document.getElementById("movie-overview").textContent = movie.overview;
+//   document.getElementById(
+//     "greyText"
+//   ).textContent = `Date: ${movie.release_date} | Popularity score:${movie.popularity}`;
+// } else {
+//   console.error("No movie data found in localStorage.");
 // }
-
-// async function fetchAndDisplayCast(movieId) {
-//   const castContainer = document.querySelector(".cast");
-
-//   if (!castContainer) {
-//     console.error("Cast container not found in the DOM.");
+// function saveToLocalStorage(movie) {
+//   let watchlist = JSON.parse(localStorage.getItem("watchlist")) || []; // Retrieve existing watchlist or create empty array
+//   const movieExists = watchlist.some((item) => item.id === movie.id); // Check if the movie already exists
+//   if (!movieExists) {
+//     watchlist.push(movie); // Add movie to watchlist
+//     localStorage.setItem("watchlist", JSON.stringify(watchlist)); // Save updated list
+//   }
+// }
+// // Add event listener to bookmark button
+// const bookmarkButton = playBtn.querySelector(".bookmark-btn");
+// bookmarkButton.addEventListener("click", () => {
+//   // Toggle bookmark icon color
+//   const icon = bookmarkButton.querySelector("i");
+//   icon.classList.toggle("fa-regular");
+//   icon.classList.toggle("fa-solid");
+//   icon.style.color = icon.classList.contains("fa-solid") ? "green" : ""; // Green when solid
+//   // Save movie to localStorage
+//   saveToLocalStorage(movie);
+// });
+// async function sameClassMovies(movieId) {
+//   // Get movie ID from localStorage instead of URL
+//   const popularContainer = document.querySelector("#just-release");
+//   console.log(movieId);
+//   if (!movieId) {
+//     console.error("Error: Movie ID not found.");
 //     return;
 //   }
-
 //   try {
 //     const response = await fetch(
-//       `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=YOUR_API_KEY`
+//       `${BASE_URL}/movie/${movieId}/similar?api_key=${API_KEY}`
 //     );
-//     const data = await response.json();
-
-//     if (data.cast && data.cast.length > 0) {
-//       const castHTML = data.cast
-//         .slice(0, 10) // Limit to 10 cast members
-//         .map(
-//           (actor) => `
-//         <div class="cast-member">
-//           <img src="https://image.tmdb.org/t/p/w200${actor.profile_path}" alt="${actor.name}">
-//           <p>${actor.name} as ${actor.character}</p>
-//         </div>
-//       `
-//         )
-//         .join("");
-
-//       castContainer.innerHTML = `<h2>Cast</h2>${castHTML}`;
-//     } else {
-//       castContainer.innerHTML = "<p>No cast information available.</p>";
+//     if (!response.ok) {
+//       console.error(`Error fetching similar movies: ${response.status}`);
+//       return;
 //     }
+//     const data = await response.json();
+//     const similarMoviesContainer =
+//       document.getElementById("watchlist-carousel");
+//     similarMoviesContainer.innerHTML = "";
+//     data.results.forEach((movie) => {
+//       const movieEl = document.createElement("div");
+//       movieEl.classList.add("movie-similar");
+//       movieEl.innerHTML = `
+//            <div class="movie-img">
+//               <img src="${IMG_PATH}${movie.poster_path}" alt="${movie.title}">
+//             </div>
+//             <div class="movie-details">
+//                <h3 class="movie-title">${movie.title}</h3>
+//            <div class="movie-rating">
+//               :star: ${movie.vote_average.toFixed(1)}
+//                <button class="bookmark-btn">
+//                   <i class="fa-regular fa-bookmark"></i>
+//                 </button>
+//             </div>
+//           </div>
+//         `;
+//       similarMoviesContainer.appendChild(movieEl);
+//     });
 //   } catch (error) {
-//     console.error("Failed to fetch cast information:", error);
+//     console.error("Error fetching similar movies:", error.message);
 //   }
+//   const bookmarkButton = similarMovies.querySelector(".bookmark-btn");
+//   bookmarkButton.addEventListener("click", () => {
+//     // Toggle bookmark icon color
+//     const icon = bookmarkButton.querySelector("i");
+//     icon.classList.toggle("fa-regular");
+//     icon.classList.toggle("fa-solid");
+//     icon.style.color = icon.classList.contains("fa-solid") ? "green" : ""; // Green when solid
+//     // Save movie to localStorage
+//     saveToLocalStorage(movie);
+//   });
+//   const prevBtn = document.querySelector(".prev");
+//   const nextBtn = document.querySelector(".next");
+//   prevBtn.addEventListener("click", () => {
+//     popularContainer.scrollLeft -= 300;
+//   });
+//   nextBtn.addEventListener("click", () => {
+//     popularContainer.scrollLeft += 300;
+//   });
 // }
+// // Call the function
+// sameClassMovies(movie.id);

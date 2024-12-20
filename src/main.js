@@ -2,7 +2,7 @@ import "./main.css";
 import "./style.css";
 import "./carousel.js";
 import "./api.js";
-// import "./counter.js";
+import "./counter.js";
 import "./swiper.js";
 import "./details.js";
 
@@ -31,57 +31,13 @@ document.querySelector("#app").innerHTML = `
           </div>
   </header>
 
-  <section>
-			<div class="swiper mySwiper-container">
-				<div class="swiper-wrapper" id="swiper-item">
+	
+				<section class="mySwiper" id="swiper-item">
 			
-					<div id="slider" class="swiper-slide">
-						<div class="movie-banner"></div>
-						<h3>Movie title</h3>
-
-						<div class="container">
-							<div class="back">
-								<div class="movie-tag">series</div>
-								<div class="release_date">1985</div>
-								<div>
-									<p>Consectetur adipisicing elit. Possimus, praesentium?</p>
-									<p>
-										Provident consectetur natus voluptatem quis tenetur sed
-										beatae eius sint.
-									</p>
-									<div class="buttons">
-                  <a href="">
-                    <button class="primary-cta">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                      fill="rgba(255,255,255,1)">
-                      <path
-                        d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM10.6219 8.41459C10.5562 8.37078 10.479 8.34741 10.4 8.34741C10.1791 8.34741 10 8.52649 10 8.74741V15.2526C10 15.3316 10.0234 15.4088 10.0672 15.4745C10.1897 15.6583 10.4381 15.708 10.6219 15.5854L15.5008 12.3328C15.5447 12.3035 15.5824 12.2658 15.6117 12.2219C15.7343 12.0381 15.6846 11.7897 15.5008 11.6672L10.6219 8.41459Z">
-                      </path>
-                    </svg>
-                    <span>Play now</span>
-                    </button>
-                  </a>
-                  <a href="">
-                    <button class="secondary-cta">
-                      Watch trailer
-                     </button>
-                  </a>
-                   <a href="watch-list">
-                    <button class="outline-cta">
-                       <i class="ri-bookmark-line"></i>
-                     <span>Add watchlist</span>
-                     </button>
-                   </a>
-                </div>
-        
-								</div>
-							</div>
-						</div>
+					<div id="slider" class="swiper-wrapper container">
+						
 					</div>
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		</section>
+				</section>
 
   <section id="brand-logos" class="swiper logo-carousel">
         <div class="container swiper-wrapper" id="override-swiper-wrapper">

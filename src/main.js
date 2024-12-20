@@ -264,7 +264,7 @@ document.querySelector("#app").innerHTML = `
   <div class="watch-movie-section">
     <h3 class="heading"> Watchlist </h3>
 
-    <section id="watch-list" class="mySwiper swiper">
+    <section id="watchlist" class="mySwiper swiper">
       <div id= "swiper-wrapper-2" class = "container swiper-wrapper">
       
       </div>

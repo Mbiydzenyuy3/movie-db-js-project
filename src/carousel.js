@@ -41,7 +41,7 @@ fetch(
     }
   })
   .then(() => {
-    const swiper = new Swiper("#watch-list", {
+    const swiper = new Swiper("#watchlist", {
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",

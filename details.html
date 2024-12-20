@@ -38,42 +38,32 @@
     </header>
     <!-- hero section -->
     <section class="hero-banner" id="hero-section-one">
-      <div class="slide-banner overlay">
-        <div class="container">
-
-          <div class="movie-content">
-            <h1 id="movie-title">Movie Title</h1>
-            <span id="greyText"></span>
-            <div id="playBtn">
-              <button id="playOne"><i class="fa-solid fa-circle-play"></i> Play Now</button>
-              <button id="playThree"><i class="fa-regular fa-circle-play"></i> Watch Trailer</button>
-              <button class="bookmark-btn" id="playTwo"><i class="fa-regular fa-bookmark"></i> Add Watchlist</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- about the movie -->
-    <section id="movie-infos-page">
       <div class="container">
-        <h3>Story Line</h3>
-        <p id="movie-overview">Movie overview...</p>
-        <div class="cast">
-          <h3 class="cast-heading info-title">Top Cast</h3>
-          <div class="cast-card">
-
+        <!-- Movie Details Section -->
+        <section id="movie-details">
+          <img src="" alt="Movie Poster" id="movie-poster">
+          <div>
+            <h1 id="movie-title"></h1>
+            <p id="movie-overview"></p>
+            <p><strong>Release Date:</strong> <span id="movie-release-date"></span></p>
+            <p><strong>Rating:</strong> ⭐ <span id="movie-rating"></span></p>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- similar movies -->
-    <section id="similarMovies">
-      <h3>Similar Movies for you</h3>
-      <div class="carousel-wrapper">
-        <div class="carousel-container" id="watchlist-carousel">
-        </div>
-        <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+        </section>
+
+        <!-- Cast Section -->
+        <section>
+          <h2>Cast</h2>
+          <div id="movie-cast"></div>
+        </section>
+        <!-- Similar Movies Section -->
+        <section>
+          <div class="container">
+            <h2>Similar Movies</h2>
+            <div id="similar-movies"></div>
+            <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </section>
       </div>
     </section>
     <!-- footer section -->

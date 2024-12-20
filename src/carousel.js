@@ -50,6 +50,27 @@ fetch(
   })
   .catch((err) => console.error(err));
 
+document.addEventListener("DOMContentLoaded", () => {
+  new Swiper(".logo-carousel", {
+    slidesPerView: 8, // Number of logos visible at a time
+    spaceBetween: 20, // Space between logos
+    // autoplay: {
+    //   delay: 0, // 3 seconds delay
+    //   disableOnInteraction: false,
+    // },
+    loop: true, // Infinite scrolling
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      768: { slidesPerView: 3 },
+      1024: { slidesPerView: 5 },
+    },
+  });
+});
+
 // async function fetchMovies() {
 //   try {
 //     const response = await fetch(URL);

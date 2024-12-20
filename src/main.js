@@ -2,7 +2,9 @@ import "./main.css";
 import "./style.css";
 import "./carousel.js";
 import "./api.js";
-import "./counter.js";
+// import "./counter.js";
+import "./swiper.js";
+import "./details.js";
 
 document.querySelector("#app").innerHTML = `
   <header>
@@ -18,39 +20,86 @@ document.querySelector("#app").innerHTML = `
                 <li><a href="./details.html">tv Shows</a></li>
               </ul>
             </nav>
-            <div class="searchbar">
+            <div class="search-bar">
               <form class="search-form">
-                    <input type="search" placeholder="Search by title..." />
-                    <button type="button"  class="search-icon">
-                        <img src="/assets/img/search.svg" alt="">
-                    </button>
+                <input type="search" id="searchInput" placeholder="Search by title..." />
+                <button type="button"  class="search-icon" id="searchButton">
+                 <img src="/assets/img/search.svg" alt="">
+                </button>
               </form>
             </div>
           </div>
   </header>
 
-  <section class="hero-banner mySwiper" id="hero"> 
-   <div class="container " id="swiper-wrapper-hero" >
-   </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>               
-  </section>
+  <section>
+			<div class="swiper mySwiper-container">
+				<div class="swiper-wrapper" id="swiper-item">
+			
+					<div id="slider" class="swiper-slide">
+						<div class="movie-banner"></div>
+						<h3>Movie title</h3>
 
-  <section class="brand-logos">
-        <div class="container logo-slider">
-          <div class="logo-item">
+						<div class="container">
+							<div class="back">
+								<div class="movie-tag">series</div>
+								<div class="release_date">1985</div>
+								<div>
+									<p>Consectetur adipisicing elit. Possimus, praesentium?</p>
+									<p>
+										Provident consectetur natus voluptatem quis tenetur sed
+										beatae eius sint.
+									</p>
+									<div class="buttons">
+                  <a href="">
+                    <button class="primary-cta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                      fill="rgba(255,255,255,1)">
+                      <path
+                        d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM10.6219 8.41459C10.5562 8.37078 10.479 8.34741 10.4 8.34741C10.1791 8.34741 10 8.52649 10 8.74741V15.2526C10 15.3316 10.0234 15.4088 10.0672 15.4745C10.1897 15.6583 10.4381 15.708 10.6219 15.5854L15.5008 12.3328C15.5447 12.3035 15.5824 12.2658 15.6117 12.2219C15.7343 12.0381 15.6846 11.7897 15.5008 11.6672L10.6219 8.41459Z">
+                      </path>
+                    </svg>
+                    <span>Play now</span>
+                    </button>
+                  </a>
+                  <a href="">
+                    <button class="secondary-cta">
+                      Watch trailer
+                     </button>
+                  </a>
+                   <a href="watch-list">
+                    <button class="outline-cta">
+                       <i class="ri-bookmark-line"></i>
+                     <span>Add watchlist</span>
+                     </button>
+                   </a>
+                </div>
+        
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+
+  <section id="brand-logos" class="swiper logo-carousel">
+        <div class="container swiper-wrapper" id="override-swiper-wrapper">
+          <div class="swiper-slide" id="slide-img-wrap">
             <img src="/assets/img/disney.png" alt="" class="logos" />
           </div>
-          <div class="logo-item"><img src="/assets/img/netflix.png" alt="" class="logos" />
+          <div class="swiper-slide" id="slide-img-wrap-1"><img src="/assets/img/netflix.png" alt="" class="logos" />
           </div>
-          <div class="logo-item"><img src="/assets/img/hbo-max.png" alt="" class="logos" /></div>
-          <div class="logo-item"><img src="/assets/img/pixar.png" alt="" class="logos" /></div>
-          <div class="logo-item"><img src="/assets/img/marvel.png" alt="" class="logos" /></div>
-          <div class="logo-item"><img src="/assets/img/starwars.png" alt="" class="logos" /></div>
-          <div class="logo-item"><img src="/assets/img/national geographic.png" alt="" class="logos" /></div>
-          <div class="logo-item"><img src="/assets/img/youTube.png" alt="" class="logos" /></div>
-          <div class="logo-item"><img src="/assets/img/webseries.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-2"><img src="/assets/img/hbo-max.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-3"><img src="/assets/img/pixar.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-4"><img src="/assets/img/marvel.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-5"><img src="/assets/img/starwars.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-6"><img src="/assets/img/national geographic.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-7"><img src="/assets/img/youTube.png" alt="" class="logos" /></div>
+          <div class="swiper-slide" id="slide-img-wrap-8"><img src="/assets/img/webseries.png" alt="" class="logos" /></div>
         </div>
+        <div class="swiper-button-next" id="btn-next"></div>
+        <div class="swiper-button-prev" id="btn-prev"></div>
   </section>
   <section class="popular-release mySwiper" id="popular-release">
       <div class="container swiper">
@@ -240,20 +289,6 @@ document.querySelector("#app").innerHTML = `
                 <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
               </div>
             </div>
-            <div class="new-popular-item >
-              <div class="number">14</div>
-              <div class="image-popular-release">
-                <img class="poster-img" src="/assets/img/first-match(1).jpg" alt="img">
-              </div>
-              <div class="release-overwiew">
-                <div class="pg-age">PG-13</div>
-                <h4 class="new-release-title">First Match</h4>
-                <span class="movie-genre">
-                  <p>SuperHero - Action</p>
-                </span>
-                <p class="movie-star">⭐ 4.3 | <span>Movies</span></p>
-              </div>
-            </div>
         </div>
   </section>
 
@@ -274,7 +309,7 @@ document.querySelector("#app").innerHTML = `
     <h3 class="heading"> Watchlist </h3>
 
     <section id="watch-list" class="mySwiper swiper">
-      <div id= "swiper-wrapper-2" class = "container   swiper-wrapper">
+      <div id= "swiper-wrapper-2" class = "container swiper-wrapper">
       
       </div>
 
@@ -370,6 +405,7 @@ fetch(
       const movieTitle = document.createElement("h4");
       movieTitle.className = "movie-title";
       movieTitle.textContent = movie.title;
+      movieTitle.innerHTML = `${movie.original_name}`;
       slide.appendChild(movieTitle);
 
       const movieParagraph = document.createElement("p");

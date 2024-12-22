@@ -390,7 +390,7 @@ document.getElementById("searchButton").addEventListener("click", async () => {
   const query = document.getElementById("searchInput").value.trim();
 
   if (!query) {
-    alert("Please enter a movie name to search.");
+    // alert("Please enter a movie name to search.");
     return;
   }
 
@@ -404,11 +404,11 @@ document.getElementById("searchButton").addEventListener("click", async () => {
       console.log("Redirecting to movie with ID:", movieId); // Debugging: Ensure the ID is valid
       window.location.href = `movie-details.html?id=${movieId}`; // Dynamically pass the movie ID
     } else {
-      alert("No movie found. Please try another search.");
+      // alert("No movie found. Please try another search.");
     }
   } catch (error) {
     console.error("Error during search:", error);
-    alert("An error occurred while searching. Please try again later.");
+    // alert("An error occurred while searching. Please try again later.");
   }
 });
 
@@ -427,3 +427,7 @@ async function fetchMovies(urlEndpoint) {
     return [];
   }
 }
+
+document.getElementById("backToHome").addEventListener("click", () => {
+  window.location.href = "index.html";
+});

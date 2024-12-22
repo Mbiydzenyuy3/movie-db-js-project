@@ -132,13 +132,18 @@
 /* Movie details section */
 #movie-details {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   margin-bottom: 40px;
+  max-width: 100%;
+  height: 70vh;
 }
 
 #movie-details img {
-  max-width: 300px;
-  border-radius: 10px;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 #movie-details div {
@@ -176,6 +181,14 @@ h2 {
 #movie-cast img:hover,
 #similar-movies img:hover {
   transform: scale(1.1);
+}
+
+.hero-banner {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Cast and similar movies text */

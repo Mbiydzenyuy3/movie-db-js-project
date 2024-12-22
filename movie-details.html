@@ -26,10 +26,10 @@
           </ul>
           <a href="index.html"><button style="background-color: transparent; color: #fff;">Back to home</button></a>
         </nav>
-        <div class="searchbar">
+        <div class="search-bar">
           <form class="search-form">
-            <input type="search" placeholder="Search by title..." />
-            <button type="button" class="search-icon">
+            <input type="search" id="searchInput" placeholder="Search by title..." />
+            <button type="button" class="search-icon" id="searchButton">
               <img src="/assets/img/search.svg" alt="">
             </button>
           </form>
@@ -39,33 +39,35 @@
     <!-- hero section -->
     <section class="hero-banner" id="hero-section-one">
       <div class="container">
-        <!-- Movie Details Section -->
-        <section id="movie-details">
-          <img src="" alt="Movie Poster" id="movie-poster">
+        <div id="movie-details">
+          <img id="poster" src="" alt="Movie Poster" />
           <div>
-            <h1 id="movie-title"></h1>
-            <p id="movie-overview"></p>
-            <p><strong>Release Date:</strong> <span id="movie-release-date"></span></p>
-            <p><strong>Rating:</strong> ⭐ <span id="movie-rating"></span></p>
+            <h1 id="title"></h1>
+            <p id="overview"></p>
+            <h5><strong>Release Date:</strong> <span id="movie-release-date"></span></h5>
+            <h5><strong>Rating:</strong> ⭐ <span id="movie-rating"></span></h5>
           </div>
-        </section>
+        </div>
 
-        <!-- Cast Section -->
-        <section>
-          <h2>Cast</h2>
-          <div id="movie-cast"></div>
-        </section>
-        <!-- Similar Movies Section -->
-        <section>
-          <div class="container">
-            <h2>Similar Movies</h2>
-            <div id="similar-movies"></div>
-            <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
-          </div>
-        </section>
       </div>
     </section>
+    <!-- Cast Section -->
+    <section>
+      <div class="container">
+        <h2>Cast</h2>
+        <div id="movie-cast"></div>
+      </div>
+    </section>
+    <!-- Similar Movies Section -->
+    <section id="mySwiper swiper">
+      <div class="container swiper-wrapper">
+        <h2>Similar Movies</h2>
+        <div id="similar-movies swiper-slide"></div>
+      </div>
+      <div class="swiper-button-next" id="btn-next"></div>
+      <div class="swiper-button-prev" id="btn-prev"></div>
+    </section>
+
     <!-- footer section -->
     <footer>
       <div class="container">
@@ -105,9 +107,9 @@
       </div>
     </footer>
   </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script type="module" src="/src/main.js"></script>
-  <script type="module" src="/src/carousel.js"></script>
-  <script type="module" src="./src/api.js"></script>
+  <script type="module" src="/src/movie-details.html"></script>
 </body>
 
 </html>

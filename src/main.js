@@ -380,3 +380,50 @@ fetch(
     });
   })
   .catch((err) => console.error(err));
+
+// search
+
+const SEARCH_URL =
+  "https://api.themoviedb.org/3/search/movie?api_key=4ef363f9f9a3c5535149c90970fa2311&language=en-US&query=";
+
+document.getElementById("searchButton").addEventListener("click", async () => {
+  const query = document.getElementById("searchInput").value.trim();
+
+  if (!query) {
+    alert("Please enter a movie name to search.");
+    return;
+  }
+
+  try {
+    const searchResults = await fetchMovies(
+      `${SEARCH_URL}${encodeURIComponent(query)}&page=1`
+    );
+
+    if (searchResults && searchResults.length > 0) {
+      const movieId = searchResults[0].id; // Use the first result's ID
+      console.log("Redirecting to movie with ID:", movieId); // Debugging: Ensure the ID is valid
+      window.location.href = `movie-details.html?id=${movieId}`; // Dynamically pass the movie ID
+    } else {
+      alert("No movie found. Please try another search.");
+    }
+  } catch (error) {
+    console.error("Error during search:", error);
+    alert("An error occurred while searching. Please try again later.");
+  }
+});
+
+async function fetchMovies(urlEndpoint) {
+  try {
+    const response = await fetch(urlEndpoint);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.results || [];
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    return [];
+  }
+}

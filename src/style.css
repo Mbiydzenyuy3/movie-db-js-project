@@ -56,7 +56,7 @@ body {
 /* Utility classes */
 .container {
   width: min(1248px, 100%);
-  margin: 0;
+  margin: auto;
   padding: 1rem;
   display: block;
 
@@ -115,6 +115,8 @@ input[type="search"]:focus {
 #hero img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 #hero-section::before {

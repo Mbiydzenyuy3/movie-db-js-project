@@ -12,6 +12,7 @@ fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", options)
   .then((data) => {
     console.log(data);
     const heroSection = document.getElementById("slider");
+    const similarMovies = document.getElementById("similar");
     for (let index = 0; index < 4; index++) {
       const movie = data.results[index];
       const posterPath = movie.poster_path

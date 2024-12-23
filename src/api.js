@@ -15,8 +15,7 @@ fetch(
   .then((res) => res.json())
   .then((data) => {
     const movieList = document.getElementById("swiper-wrapper-3");
-    const similarMovies = document.getElementById("similar");
-
+  
     for (let index = 0; index < data.results.length; index++) {
       const movie = data.results[index];
       const posterPath = movie.poster_path
@@ -25,7 +24,6 @@ fetch(
       const slide = document.createElement("div");
       slide.className = "released-movies swiper-slide";
       movieList.appendChild(slide);
-      similarMovies.appendChild(slide);
 
       const img = document.createElement("img");
       img.src = posterPath;

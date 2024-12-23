@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="details-page">
+    <!-- header section -->
+    <header>
+      <div class="container header">
+        <div class="logo">
+          <img class="main-logo" src=" /assets/img/Logo.png" alt="logo" />
+          <img class="logo-name" src=" /assets/img/SaintStream.png" alt="logo" />
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="movie-details.html">Home</a></li>
+            <li><a href="#simalar-movies">Movies</a></li>
+            <li><a href="#footer">tv Shows</a></li>
+          </ul>
+          <button id="backToHome" style="background-color: transparent; color: #fff;">Back to
+            home</button>
+        </nav>
+        <div class="search-bar">
+          <form class="search-form">
+            <input type="search" id="searchInput" placeholder="Search by title..." />
+            <button type="button" class="search-icon" id="searchButton">
+              <img src="/assets/img/search.svg" alt="">
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- hero section -->
+    <section class="hero-banner" id="hero-section-one">
+      <div class="container">
+        <div id="movie-details">
+          <img id="poster" src="" alt="Movie Poster" />
+          <div class="about-movie">
+            <h1 id="title"></h1>
+            <h3>Storyline</h3>
+            <p id="overview"></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- Cast Section -->
+    <section id="cast-container">
+      <div class="container">
+        <h2>Cast</h2>
+        <ul id="movie-cast"></ul>
+      </div>
+    </section>
+    <!-- Similar Movies Section -->
+    <section id="similar-movies-section" class="mySwiper swiper">
+      <div class="container swiper-wrapper" id="similarMovies">
+        <h2>Similar Movies</h2>
+        <div id="similar" class="swiper-slide"></div>
+      </div>
+      <div class="swiper-button-next" id="btn-next"></div>
+      <div class="swiper-button-prev" id="btn-prev"></div>
+    </section>
+
+    <!-- footer section -->
+    <footer id="footer">
+      <div class="container">
+        <div class="footer">
+          <div class="footer-item-one">
+            <div class="footer-heading">
+              <h3 class="heading-three-footer">Our platform is trusted by millions & features best updated movies all
+                around
+                the world.
+              </h3>
+            </div>
+          </div>
+          <div class="footer-item-two">
+            <ul class="unordered-list">
+              <div class="links"><a href="">Home</a>/</div>
+              <div class="links"><a href="">Release</a>/</div>
+              <div class="links"><a href="">Discover</a>/</div>
+            </ul>
+            <div class="social-media">
+              <img class="social-media-icon" src="/assets/img/Facebook.png" alt="facebook-icon" />
+              <img class="social-media-icon" src="/assets/img/Instagram.png" alt="instagram-icon" />
+              <img class="social-media-icon" src="/assets/img/Twitter.png" alt="twitter-icon" />
+              <img class="social-media-icon" src="/assets/img/Google.png" alt="google-icon" />
+            </div>
+          </div>
+        </div>
+        <div class="contact-footer">
+          <div class="contact-policy">
+            <span>Privacy Policy</span>
+            <span>Terms of service</span>
+            <span>Language</span>
+          </div>
+          <div class="copyright">
+            &copy; 2024
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/movie-details.html"></script>
+</body>
+
+</html>

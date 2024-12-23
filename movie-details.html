@@ -42,28 +42,27 @@
       <div class="container">
         <div id="movie-details">
           <img id="poster" src="" alt="Movie Poster" />
-          <div>
+          <div class="about-movie">
             <h1 id="title"></h1>
+            <h3>Storyline</h3>
             <p id="overview"></p>
-            <h5><strong>Release Date:</strong> <span id="movie-release-date"></span></h5>
-            <h5><strong>Rating:</strong> ⭐ <span id="movie-rating"></span></h5>
           </div>
         </div>
 
       </div>
     </section>
     <!-- Cast Section -->
-    <section>
-      <div class="container">
+    <section id="cast-container">
+      <div class="container"> 
         <h2>Cast</h2>
-        <div id="movie-cast"></div>
+        <ul id="movie-cast"></ul>
       </div>
     </section>
     <!-- Similar Movies Section -->
-    <section id="similar-movies" class="mySwiper swiper">
-      <div class="container swiper-wrapper">
+    <section id="similar-movies-section" class="mySwiper swiper">
+      <div class="container swiper-wrapper" id="similarMovies">
         <h2>Similar Movies</h2>
-        <div id="similar-movies swiper-slide"></div>
+        <div id="similar" class="swiper-slide"></div>
       </div>
       <div class="swiper-button-next" id="btn-next"></div>
       <div class="swiper-button-prev" id="btn-prev"></div>

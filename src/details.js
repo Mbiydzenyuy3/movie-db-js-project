@@ -38,3 +38,54 @@ if (movieId) {
   console.error("No movie ID found in URL");
   //   alert("No movie selected. Please go back and select a movie.");
 }
+
+const API_KEY = "4ef363f9f9a3c5535149c90970fa2311";
+const TOP_RATED_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+
+async function fetchTopRatedMovies() {
+  try {
+    // Fetch top-rated movies
+    const response = await fetch(TOP_RATED_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const movies = data.results || [];
+    console.log("Top-Rated Movies:", movies);
+
+    // Fetch cast for the first movie as an example
+    if (movies.length > 0) {
+      const firstMovieId = movies[0].id;
+      console.log("Fetching cast for movie ID:", firstMovieId);
+
+      const cast = await fetchMovieCast(firstMovieId);
+      console.log("Cast for the first movie:", cast);
+    } else {
+      console.log("No movies found.");
+    }
+  } catch (error) {
+    console.error("Error fetching top-rated movies:", error);
+  }
+}
+
+async function fetchMovieCast(movieId) {
+  const MOVIE_CREDITS_URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
+
+  try {
+    // Fetch movie credits
+    const response = await fetch(MOVIE_CREDITS_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const credits = await response.json();
+    return credits.cast || [];
+  } catch (error) {
+    console.error("Error fetching movie cast:", error);
+    return [];
+  }
+}
+
+// Run the functions
+fetchTopRatedMovies();
